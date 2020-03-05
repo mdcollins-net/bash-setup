@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd27de3b-2c60-434c-b97c-3b75b2109acd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bash-setup.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +41,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Java" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Shell Script" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,7 +53,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583323665436</updated>
-      <workItem from="1583323667166" duration="5186000" />
+      <workItem from="1583323667166" duration="12326000" />
+      <workItem from="1583418961587" duration="462000" />
+      <workItem from="1583419450686" duration="61000" />
+      <workItem from="1583419536834" duration="90000" />
+      <workItem from="1583420318369" duration="610000" />
+      <workItem from="1583422118767" duration="1547000" />
     </task>
     <servers />
   </component>
@@ -67,5 +67,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1498" y="383" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1583419425703">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="1498" y="383" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.2560.1050@0.0.2560.1050" timestamp="1583419425703" />
+    <state x="1424" y="241" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1583419460920">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="1424" y="241" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1050@0.0.2560.1050" timestamp="1583419460920" />
+    <state x="1524" y="255" key="FileChooserDialogImpl" timestamp="1583419416469">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="1524" y="255" key="FileChooserDialogImpl/0.0.2560.1050@0.0.2560.1050" timestamp="1583419416469" />
+    <state x="387" y="149" key="SettingsEditor" timestamp="1583420416970">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="387" y="149" key="SettingsEditor/0.0.2560.1050@0.0.2560.1050" timestamp="1583420416970" />
   </component>
 </project>
