@@ -5,6 +5,8 @@
 #
 #  wget -O - http://bit.ly/mcbashsetup | bash
 #
+#  VIM Zenburn theme : http://bit.ly/mcbashvimzenburn
+#
 
 
 banner="
@@ -54,7 +56,7 @@ install_node () {
   echo -e "\nInstalling / Updating ${bold}npm${normal} ... \n"
   sudo -H npm install -g npm
 
-  echo -e "\n${bold}Finished installing Node.js ... ${normal}\n"
+  echo -e "\n${bold}Finished installing Node.js. ${normal}\n"
 }
 
 install_node_package () {
@@ -103,7 +105,7 @@ install_rust () {
   echo -e "\n${bold}Installing Rust ... ${normal}\n"
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
   source "~"/.cargo/env
-  echo -e "\n${bold}Finished installing Rust ... ${normal}\n"
+  echo -e "\n${bold}Finished installing Rust. ${normal}\n"
 }
 
 install_rust_package () {
@@ -130,6 +132,8 @@ create_directories () {
   mkdir -p projects/{personal,work}
   mkdir -p projects/personal/{java,linux,node,python,uml}
   mkdir -p ~/.vim/colors
+  mkdir -p ~/.vim/pack/vendor/start
+  mkdir -p ~/.vim/pack/vendor/start/vim-airline
 }
 
 make_backups () {
@@ -138,9 +142,44 @@ make_backups () {
   for f in ${files}; do
     source=${f}
     if [ -f "$source" ]; then
-      cp -a "~/${source}" "~/backup/profile/${source:1}-${dtstamp}"
+      cp -a "${HOME}/${source}" "${HOME}/backup/profile/${source:1}-${dtstamp}"
     fi
   done
+}
+
+vim_setup_color_themes () {
+  echo -e "Downloading VIM themes ... \n"
+  wget -O "${HOME}/.vim/colors/zenburn.vim" http://bit.ly/mcbashvimzenburn
+  dos2unix "${HOME}/.vim/colors/zenburn.vim"
+  echo -e "Finished downloading VIM themes.\n"
+}
+
+vim_setup_plugins () {
+  echo -e "Downloading VIM plugins ... \n"
+
+  echo -e "Finished downloading VIM plugins.\n"
+}
+
+vim_setup () {
+  echo -e "\n${bold}Setting up VIM ... ${normal}\n"
+  vim_setup_color_themes
+  if [ -f "~/.vimrc" ]; then
+    rm "~/.vimrc"
+  fi
+  {
+    echo "set nocompatible"
+    echo "set background=dark"
+    echo "set number"
+    echo "set numberwidth=5"
+    echo "set autoindent"
+    echo "set ruler"
+    echo "set visualbell"
+    echo "set t_vb="
+    echo "filetype indent plugin on"
+    echo "syntax on"
+    echo "colors zenburn"
+  } >> .vimrc
+  echo -e "\n${bold}Finished setting up VIM.${normal}\n"
 }
 
 print_banner
@@ -157,10 +196,4 @@ print_banner
 
 create_directories
 make_backups
-
-
-
-
-
-
-
+vim_setup
