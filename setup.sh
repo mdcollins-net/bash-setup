@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #
-# To run from remote:
+#  To run from remote:
 #
-# wget -q http://bit.ly/mcbashsetup -O -
+#  wget -O - http://bit.ly/mcbashsetup | bash
 #
 
 
@@ -16,7 +16,7 @@ ___  ____ ____ _  _        ____ ____ ___ _  _ ___
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-packages="curl dos2unix fasd linuxbrew-wrapper python3.8 golang-go"
+packages="wget curl vim dos2unix fasd linuxbrew-wrapper python3.8 golang-go"
 python_packages="speedtest-cli"
 go_packages="github.com/justjanne/powerline-go"
 node_packages="@aweary/alder git-commander fkill-cli"
@@ -120,23 +120,45 @@ install_rust_packages () {
 }
 
 create_directories () {
-  cd ${HOME}
+  cd "${HOME}"
+  mkdir -p bin
+  mkdir -p sbin
+  mkdir -p etc
+  mkdir -p java
   mkdir -p backup/{ssh,profile}
+  mkdir -p repos
+  mkdir -p projects/{personal,work}
+  mkdir -p projects/personal/{java,linux,node,python,uml}
+  mkdir -p ~/.vim/colors
+}
+
+make_backups () {
+  files=".bashrc .gitconfig .profile .viminfo .vimrc"
+  dtstamp=$(date +"%Y_%m_%d-%H_%M_%S")
+  for f in ${files}; do
+    source=${f}
+    if [ -f "$source" ]; then
+      cp -a "~/${source}" "~/backup/profile/${source:1}-${dtstamp}"
+    fi
+  done
 }
 
 print_banner
 
-install_packages
-install_python_packages
-install_go_packages
+#install_packages
+#install_python_packages
+#install_go_packages
 
-install_node
-install_node_packages
+#install_node
+#install_node_packages
 
-install_rust
-install_rust_packages
+#install_rust
+#install_rust_packages
 
 create_directories
+make_backups
+
+
 
 
 
