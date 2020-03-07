@@ -175,10 +175,6 @@ create_directories () {
   mkdir -p "${HOME}/repos"
   mkdir -p "${HOME}/projects/{personal,work}"
   mkdir -p "${HOME}/projects/personal/{java,linux,node,python,uml}"
-  mkdir -p "${HOME}/vim/colors"
-  mkdir -p "${HOME}/.vim/pack/vendor/start"
-  mkdir -p "${HOME}/.vim/autoload"
-  mkdir -p "${HOME}/.vim/plugged"
   sudo mkdir -p /opt/java
 }
 
@@ -217,6 +213,11 @@ vim_setup () {
   fi
 
   rm -rf "${HOME}/.vim"
+
+  mkdir -p "${HOME}/.vim/colors"
+  mkdir -p "${HOME}/.vim/pack/vendor/start"
+  mkdir -p "${HOME}/.vim/autoload"
+  mkdir -p "${HOME}/.vim/plugged"
 
   vim_setup_color_themes
   vim_setup_plugins
