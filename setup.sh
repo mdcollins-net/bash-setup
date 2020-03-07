@@ -18,7 +18,7 @@ ___  ____ ____ _  _        ____ ____ ___ _  _ ___
 bold=$(tput bold)
 normal=$(tput sgr0)
 
-packages="wget curl vim dos2unix fasd linuxbrew-wrapper python3.8 golang-go"
+packages="wget curl vim dos2unix fasd linuxbrew-wrapper python3.8 golang-go fonts-powerline ctags docker.io ctop"
 python_packages="speedtest-cli"
 go_packages="github.com/justjanne/powerline-go"
 node_packages="@aweary/alder git-commander fkill-cli"
@@ -133,7 +133,9 @@ create_directories () {
   mkdir -p projects/personal/{java,linux,node,python,uml}
   mkdir -p ~/.vim/colors
   mkdir -p ~/.vim/pack/vendor/start
-  mkdir -p ~/.vim/pack/vendor/start/vim-airline
+  mkdir -p ~/.vim/autoload
+  mkdir -p ~/.vim/plugged
+  sudo mkdir -p /opt/java
 }
 
 make_backups () {
@@ -142,6 +144,7 @@ make_backups () {
   for f in ${files}; do
     source=${f}
     if [ -f "$source" ]; then
+      # Remove first character ('.') of file name for target backup copy
       cp -a "${HOME}/${source}" "${HOME}/backup/profile/${source:1}-${dtstamp}"
     fi
   done
@@ -149,6 +152,7 @@ make_backups () {
 
 vim_setup_color_themes () {
   echo -e "Downloading VIM themes ... \n"
+  # VIM Theme : Zenburn
   wget -O "${HOME}/.vim/colors/zenburn.vim" http://bit.ly/mcbashvimzenburn
   dos2unix "${HOME}/.vim/colors/zenburn.vim"
   echo -e "Finished downloading VIM themes.\n"
@@ -156,15 +160,18 @@ vim_setup_color_themes () {
 
 vim_setup_plugins () {
   echo -e "Downloading VIM plugins ... \n"
-
+  # VIM Plugin : Plug
+  wget -O "${HOME}/.vim/autoload/plug.vim" http://bit.ly/mcbashvimplug
+  dos2unix "${HOME}/.vim/autoload/plug.vim"
   echo -e "Finished downloading VIM plugins.\n"
 }
 
 vim_setup () {
   echo -e "\n${bold}Setting up VIM ... ${normal}\n"
   vim_setup_color_themes
-  if [ -f "~/.vimrc" ]; then
-    rm "~/.vimrc"
+  vim_setup_plugins
+  if [ -f "${HOME}/.vimrc" ]; then
+    rm "${HOME}/.vimrc"
   fi
   {
     echo "set nocompatible"
@@ -175,16 +182,51 @@ vim_setup () {
     echo "set ruler"
     echo "set visualbell"
     echo "set t_vb="
+    echo "set termguicolors"
+    echo "set noshowmode"
+    echo "set tags=tags"
     echo "filetype indent plugin on"
     echo "syntax on"
     echo "colors zenburn"
-  } >> .vimrc
+    echo ""
+    echo "call plug#begin('~/.vim/plugged')"
+    echo ""
+    echo "Plug 'jnurmine/zenburn'"
+    echo "Plug 'yggdroot/indentline'"
+    echo "Plug 'tpope/vim-fugitive'"
+    echo "Plug 'airblade/vim-gitgutter'"
+    echo "Plug 'majutsushi/tagbar'"
+    echo "Plug 'scrooloose/nerdtree'"
+    echo "Plug 'vim-airline/vim-airline'"
+    echo "Plug 'vim-airline/vim-airline-themes'"
+    echo ""
+    echo "call plug#end()"
+    echo ""
+    echo "autocmd VimEnter *"
+    echo "    \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))"
+    echo "    \|   PlugInstall | q"
+    echo "    \| endif"
+    echo ""
+    echo "let g:airline_powerline_fonts = 1"
+    echo "let g:airline_theme='dark'"
+    echo ""
+    echo "let g:gitgutter_sign_added = '+'"
+    echo "let g:gitgutter_sign_modified = '>'"
+    echo "let g:gitgutter_sign_removed = '-'"
+    echo "let g:gitgutter_sign_removed_first_line = '^'"
+    echo "let g:gitgutter_sign_modified_removed = '<'"
+    echo "let g:gitgutter_override_sign_column_highlight = 1"
+    echo ""
+    echo "highlight SignColumn guibg=bg"
+    echo "highlight SignColumn ctermbg=bg"
+    echo ""
+  } >> ${HOME}/.vimrc
   echo -e "\n${bold}Finished setting up VIM.${normal}\n"
 }
 
 print_banner
 
-#install_packages
+install_packages
 #install_python_packages
 #install_go_packages
 
