@@ -46,7 +46,7 @@ URL_PROFILE="http://bit.ly/mcbashprofile"
 packages="wget curl vim dos2unix ctags mc"
 packages="${packages} fasd fonts-powerline"
 packages="${packages} linuxbrew-wrapper"
-packages="${packages} python3.8 golang-go openjdk-13-jdk"
+packages="${packages} python3.8 golang-go oracle-java13-installer oracle-java13-set-default"
 
 # Python packages
 python_packages="speedtest-cli"
@@ -64,14 +64,22 @@ print_banner () {
   echo -e "${BOLD}${banner}${NORMAL}"
 }
 
+update_package_repos () {
+  echo -e "\n${BOLD}Updating Package Repositories ... ${NORMAL}\n"
+
+  sudo add-apt-repository ppa:linuxuprising/java
+  sudo apt update
+
+  echo -e "\n${BOLD}Finished updating repositories ... ${NORMAL}\n"
+}
+
 install_package () {
   echo -e "\nInstalling package: ${BOLD}${1}${NORMAL} ... \n"
   sudo apt install -y "${1}"
 }
 
 install_packages () {
-  echo -e "\n${BOLD}Updating Package Management System ... ${NORMAL}\n"
-  sudo apt update;
+
   echo -e "\n${BOLD}Installing packages ... \n"
   for p in ${packages}; do
     install_package "${p}"
@@ -82,12 +90,12 @@ install_packages () {
 install_node () {
   echo -e "\n${BOLD}Installing Node.js ... ${NORMAL}\n"
   curl -sL "${URL_NODE_SETUP}" | sudo -E bash -
-  sudo apt-get install -y nodejs
+  sudo apt install -y nodejs
 
   echo -e "\nInstalling ${bold}yarn${normal} ... \n"
   curl -sL "${URL_YARN_PUB_KEY}" | sudo apt-key add -
   echo "deb ${URL_YARN_PKG} stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt-get update && sudo apt-get install yarn
+  sudo apt install -y yarn
 
   echo -e "\nInstalling / Updating ${BOLD}npm${NORMAL} ... \n"
   sudo -H npm install -g npm
