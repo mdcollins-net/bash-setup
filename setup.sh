@@ -67,7 +67,7 @@ print_banner () {
 update_package_repos () {
   echo -e "\n${BOLD}Updating Package Repositories ... ${NORMAL}\n"
 
-  sudo add-apt-repository ppa:linuxuprising/java
+  sudo add-apt-repository -y ppa:linuxuprising/java
   sudo apt update
 
   echo -e "\n${BOLD}Finished updating repositories ... ${NORMAL}\n"
