@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cd27de3b-2c60-434c-b97c-3b75b2109acd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vimrc.sh" beforeDir="false" afterPath="$PROJECT_DIR$/vimrc.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
       <workItem from="1583419536834" duration="90000" />
       <workItem from="1583420318369" duration="610000" />
       <workItem from="1583422118767" duration="21075000" />
-      <workItem from="1583521215644" duration="14254000" />
+      <workItem from="1583521215644" duration="14534000" />
     </task>
     <servers />
   </component>
