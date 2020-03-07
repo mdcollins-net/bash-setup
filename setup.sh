@@ -69,7 +69,8 @@ update_package_repos () {
 
   sudo add-apt-repository -y ppa:linuxuprising/java
   sudo apt update
-
+  echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
+  echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
   echo -e "\n${BOLD}Finished updating repositories ... ${NORMAL}\n"
 }
 
@@ -214,6 +215,8 @@ vim_setup () {
   if [ -f "${HOME}/.vimrc" ]; then
     rm "${HOME}/.vimrc"
   fi
+
+  rm -rf "${HOME}/.vim"
 
   vim_setup_color_themes
   vim_setup_plugins
