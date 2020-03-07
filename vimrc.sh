@@ -69,10 +69,3 @@ autocmd VimEnter *
     \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
     \|   PlugInstall | q
     \| endif
-
-augroup once
-    autocmd!
-    autocmd VimEnter * PlugInstall | q
-        \ | execute 'autocmd! once'
-        \ | augroup! once
-augroup END
