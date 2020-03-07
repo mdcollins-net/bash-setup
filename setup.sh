@@ -71,6 +71,7 @@ update_package_repos () {
   sudo apt update
   echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
   echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
+
   echo -e "\n${BOLD}Finished updating repositories ... ${NORMAL}\n"
 }
 
@@ -200,7 +201,7 @@ vim_setup_color_themes () {
 vim_setup_plugins () {
   echo -e "Downloading VIM plugins ... \n"
   # VIM Plugin : Plug
-  wget -O --no-cache "${HOME}/.vim/autoload/plug.vim" ${URL_VIM_PLUGIN_PLUG}
+  wget -O "${HOME}/.vim/autoload/plug.vim" ${URL_VIM_PLUGIN_PLUG}
   dos2unix "${HOME}/.vim/autoload/plug.vim"
   echo -e "Finished downloading VIM plugins.\n"
 }
@@ -223,7 +224,7 @@ vim_setup () {
   vim_setup_plugins
 
   echo -e "Downloading vimrc ... \n"
-  wget -O --no-cache "${TEMP_DIR}/vimrc" ${URL_VIM_VIMRC}
+  wget -O "${TEMP_DIR}/vimrc" ${URL_VIM_VIMRC}
   dos2unix "${TEMP_DIR}/vimrc"
   cp "${TEMP_DIR}/vimrc" "${HOME}/.vimrc"
 
@@ -233,7 +234,7 @@ vim_setup () {
 profile_setup () {
   echo -e "\n${BOLD}Setting up BASH profile ... ${NORMAL}\n"
 
-  wget -O --no-cache "${TEMP_DIR}/profile" ${URL_PROFILE}
+  wget -O "${TEMP_DIR}/profile" ${URL_PROFILE}
   dos2unix "${TEMP_DIR}/profile"
   cp "${TEMP_DIR}/profile" "${HOME}/.profile"
 
