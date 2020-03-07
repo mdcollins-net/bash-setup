@@ -65,7 +65,3 @@ au BufNewFile,BufRead *.java, *.js, *.html, *.css
     \ set softtabstop=4
     \ set shiftwidth=4
 
-autocmd VimEnter *
-    \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
-    \|   PlugInstall | q
-    \| endif
