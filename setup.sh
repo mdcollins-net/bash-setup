@@ -193,7 +193,7 @@ make_backups () {
 vim_setup_color_themes () {
   echo -e "Downloading VIM themes ... \n"
   # VIM Theme : Zenburn
-  wget -O --no-cache "${HOME}/.vim/colors/zenburn.vim" ${URL_VIM_THEME_ZENBURN}
+  wget -O "${HOME}/.vim/colors/zenburn.vim" ${URL_VIM_THEME_ZENBURN}
   dos2unix "${HOME}/.vim/colors/zenburn.vim"
   echo -e "Finished downloading VIM themes.\n"
 }
