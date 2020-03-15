@@ -45,7 +45,7 @@ alias t='tre'
 
 alias td='tre --directories'
 alias fk='sudo fkill -f -v'
-alias ll='exa --long --group-directories-first --git --header --color=always --sort=size'
+alias ll='exa --long --group-directories-first --git --icons --header --color=always --sort=size'
 alias lw='exa --group-directories-first --color=always --sort=name'
 alias la='exa --group-directories-first --color=always --sort=name --all'
 alias ld='exa --only-dirs --color=always --all'
@@ -113,17 +113,17 @@ function ssh_agent_init() {
 	env=~/.ssh/agent.env
 
 	#agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-	
+
 	agent_load_env () { test -f "$env" && . "$env"  ; }
-	
+
 	#agent_start () {
 		#(umask 077; ssh-agent >| "$env")
-		#. "$env" >| /dev/null ; 
+		#. "$env" >| /dev/null ;
 	#}
 
 	agent_start () {
 		(umask 077; ssh-agent >| "$env")
-		. "$env" ; 
+		. "$env" ;
 	}
 
 	agent_load_env
@@ -147,24 +147,24 @@ function ssh_agent_init() {
 #  +-------------------------------------------------------------------+
 
 #  ---------------------------------------------------------------------
- 
-#  
+
+#
 #  Powerline prompt
-#  
+#
 
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
 	PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-#  
+#
 #  Autojump
-#  
+#
 
 [[ -s /home/mark/.autojump/etc/profile.d/autojump.sh ]] && source /home/mark/.autojump/etc/profile.d/autojump.sh
 
-#  
+#
 #  FASD
-#  
+#
 
 fasd_cache="$HOME/.fasd-init-bash"
 
@@ -185,5 +185,3 @@ ssh_keychain_init
 
 
 cd $HOME
-
-

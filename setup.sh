@@ -10,11 +10,12 @@
 
 
 banner="
-___  ____ ____ _  _        ____ ____ ___ _  _ ___
-|__] |__| [__  |__|   __   [__  |___  |  |  | |__]
-|__] |  | ___] |  |        ___] |___  |  |__| |
+    ___  ____ ____ _  _        ____ ____ ___ _  _ ___
+    |__] |__| [__  |__|   __   [__  |___  |  |  | |__]
+    |__] |  | ___] |  |        ___] |___  |  |__| |
 
 "
+
 #
 #  Variables used throught script: colors, datetime stamp etc.
 #
@@ -257,4 +258,3 @@ create_directories
 make_backups
 vim_setup
 profile_setup
-
