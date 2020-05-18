@@ -136,6 +136,7 @@ ssh_keychain_init
 
 
 plugins=(
+    k
 	git
 	ant
 	autojump

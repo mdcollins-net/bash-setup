@@ -36,10 +36,10 @@ URL_VIM_THEME_ZENBURN="http://bit.ly/mcbashvimzenburn"
 URL_VIM_PLUGIN_PLUG="http://bit.ly/mcbashvimplug"
 URL_VIM_VIMRC="http://bit.ly/mcbashvimrc"
 
-
-
 URL_PROFILE="http://bit.ly/mcbashprofile"
 
+URL_ZSHRC="http://bit.ly/mcbashzshrc"
+URL_ZPROFILE="http://bit.ly/mcbashzprofile"
 
 #
 #  Set lists of packages to install
@@ -183,7 +183,7 @@ create_directories () {
 }
 
 make_backups () {
-  files=".bashrc .gitconfig .profile .viminfo .vimrc"
+  files=".bashrc .gitconfig .profile .viminfo .vimrc .zshrc .zprofile"
   for f in ${files}; do
     source=${f}
     if [ -f "$source" ]; then
@@ -244,9 +244,38 @@ profile_setup () {
   echo -e "\n${BOLD}Finished setting up BASH profile.${NORMAL}\n"
 }
 
+zsh_setup () {
+
+  echo -e "Installing ZSH ... \n"
+  sudo apt install -y zsh
+
+  echo -e "Installing Oh My ZSH ... \n"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+  echo -e "Installing ZSH plugin: zsh-syntax-highlighting ... \n"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+  echo -e "Installing ZSH plugin: zsh-autosuggestions ... \n"
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+  echo -e "Installing ZSH plugin: zsh-autosuggestions ... \n"
+  git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k
+
+  echo -e "Downloading zshrc ... \n"
+  wget -O "${TEMP_DIR}/zshrc" ${URL_ZSHRC}
+  dos2unix "${TEMP_DIR}/zshrc"
+  cp "${TEMP_DIR}/zshrc" "${HOME}/.zshrc"
+
+  echo -e "Downloading zprofile ... \n"
+  wget -O "${TEMP_DIR}/zprofile" ${URL_ZPROFILE}
+  dos2unix "${TEMP_DIR}/zprofile"
+  cp "${TEMP_DIR}/zprofile" "${HOME}/.zprofile"
+
+}
+
 print_banner
 
-install_packages
+#install_packages
 #install_python_packages
 #install_go_packages
 
@@ -258,5 +287,8 @@ install_packages
 
 create_directories
 make_backups
-vim_setup
-profile_setup
+#vim_setup
+#profile_setup
+
+zsh_setup
+
