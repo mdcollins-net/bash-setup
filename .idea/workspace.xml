@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd27de3b-2c60-434c-b97c-3b75b2109acd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/zprofile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zshrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +64,11 @@
       <workItem from="1583521215644" duration="14844000" />
       <workItem from="1583661233546" duration="282000" />
       <workItem from="1584306562265" duration="4516000" />
+      <workItem from="1587374324844" duration="901000" />
+      <workItem from="1589534006108" duration="64000" />
+      <workItem from="1589550044686" duration="1486000" />
+      <workItem from="1589720755735" duration="1461000" />
+      <workItem from="1589723715088" duration="299000" />
     </task>
     <servers />
   </component>
