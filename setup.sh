@@ -52,7 +52,7 @@ packages="${packages} linuxbrew-wrapper"
 packages="${packages} python3.8 python3-pip golang-go oracle-java13-installer oracle-java13-set-default"
 
 # Python packages
-python_packages="speedtest-cli"
+python_packages="powerline-shell speedtest-cli"
 
 # Go lang packages
 go_packages="github.com/justjanne/powerline-go"
@@ -123,13 +123,11 @@ install_node_packages () {
 
 install_python_package () {
   echo -e "\nInstalling Python package: ${BOLD}${1}${normal} ... \n"
-  sudo -H python -m pip install "${1}"
+  sudo -H pip3 install "${1}"
 }
 
 install_python_packages () {
-  echo -e "\n${BOLD}Installing Python packages ... ${NORMAL}\n"
-  echo -e "\nInstalling / Updating ${bold}pip${NORMAL} ... \n"
-  sudo -H python -m pip install -U pip
+  echo -e "\n${BOLD}Installing Python packages ... ${NORMAL}\n"  
   for p in ${python_packages}; do
     install_python_package "${p}"
   done
