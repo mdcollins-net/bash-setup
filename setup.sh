@@ -46,10 +46,10 @@ URL_ZPROFILE="http://bit.ly/mcbashzprofile"
 #
 
 # linux packages
-packages="wget curl vim dos2unix ctags mc git cargo python3-pip"
+packages="wget curl vim dos2unix ctags mc git cargo"
 packages="${packages} fasd fonts-powerline"
 packages="${packages} linuxbrew-wrapper"
-packages="${packages} python3.8 golang-go oracle-java13-installer oracle-java13-set-default"
+packages="${packages} python3.8 python3-pip golang-go oracle-java13-installer oracle-java13-set-default"
 
 # Python packages
 python_packages="speedtest-cli"
