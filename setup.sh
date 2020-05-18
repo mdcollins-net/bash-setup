@@ -275,20 +275,19 @@ zsh_setup () {
 
 print_banner
 
-#install_packages
-#install_python_packages
-#install_go_packages
+install_packages
+install_python_packages
+install_go_packages
 
-#install_node
-#install_node_packages
+install_node
+install_node_packages
 
-#install_rust
-#install_rust_packages
+install_rust
+install_rust_packages
 
 create_directories
 make_backups
-#vim_setup
-#profile_setup
-
+vim_setup
+profile_setup
 zsh_setup
 
