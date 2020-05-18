@@ -158,7 +158,6 @@ source $ZSH/oh-my-zsh.sh
 alias c='clear'
 alias l='exa --group-directories-first --color=always --sort=extension'
 alias t='tre'
-alias k='sudo fkill -f -v'
 alias t='tre'
 
 alias td='tre --directories'
@@ -173,6 +172,7 @@ alias ..='cd ..'
 alias lla='exa --long --group-directories-first --git --header --color=always --sort=size --all'
 
 alias tree='tre'
+alias kill='sudo fkill -f -v'
 
 # Windows WSL
 
