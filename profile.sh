@@ -45,7 +45,7 @@ alias t='tre'
 
 alias td='tre --directories'
 alias fk='sudo fkill -f -v'
-alias ll='exa --long --group-directories-first --git --icons --header --color=always --sort=size'
+alias ll='exa --long --group-directories-first --git --header --color=always --sort=size'
 alias lw='exa --group-directories-first --color=always --sort=name'
 alias la='exa --group-directories-first --color=always --sort=name --all'
 alias ld='exa --only-dirs --color=always --all'

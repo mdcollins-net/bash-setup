@@ -46,7 +46,7 @@ URL_ZPROFILE="http://bit.ly/mcbashzprofile"
 #
 
 # linux packages
-packages="wget curl vim dos2unix ctags mc git autojump keychain"
+packages="wget curl vim dos2unix ctags mc git autojump keychain exa"
 packages="${packages} fasd fonts-powerline"
 packages="${packages} linuxbrew-wrapper"
 packages="${packages} python3.8 python3-pip golang-go oracle-java13-installer oracle-java13-set-default"
