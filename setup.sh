@@ -46,7 +46,7 @@ URL_ZPROFILE="http://bit.ly/mcbashzprofile"
 #
 
 # linux packages
-packages="wget curl vim dos2unix ctags mc git cargo"
+packages="wget curl vim dos2unix ctags mc git autojump keychain"
 packages="${packages} fasd fonts-powerline"
 packages="${packages} linuxbrew-wrapper"
 packages="${packages} python3.8 python3-pip golang-go oracle-java13-installer oracle-java13-set-default"
@@ -71,7 +71,7 @@ update_package_repos () {
   echo -e "\n${BOLD}Updating Package Repositories ... ${NORMAL}\n"
 
   sudo add-apt-repository -y ppa:linuxuprising/java
-  sudo apt update
+  sudo apt-get update
   echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
   echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 
@@ -80,7 +80,7 @@ update_package_repos () {
 
 install_package () {
   echo -e "\nInstalling package: ${BOLD}${1}${NORMAL} ... \n"
-  sudo apt install -y "${1}"
+  sudo apt-get install -y "${1}"
 }
 
 install_packages () {
@@ -95,12 +95,12 @@ install_packages () {
 install_node () {
   echo -e "\n${BOLD}Installing Node.js ... ${NORMAL}\n"
   curl -sL "${URL_NODE_SETUP}" | sudo -E bash -
-  sudo apt install -y nodejs
+  sudo apt-get install -y nodejs
 
   echo -e "\nInstalling ${bold}yarn${normal} ... \n"
   curl -sL "${URL_YARN_PUB_KEY}" | sudo apt-key add -
   echo "deb ${URL_YARN_PKG} stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt install -y yarn
+  sudo apt-get install -y yarn
 
   echo -e "\nInstalling / Updating ${BOLD}npm${NORMAL} ... \n"
   sudo -H npm install -g npm
