@@ -37,10 +37,10 @@ URL_RUST_SETUP="https://sh.rustup.rs"
 #
 
 # linux packages
-packages="wget curl vim dos2unix ctags mc git autojump keychain exa"
+packages="wget curl vim dos2unix mc git autojump keychain exa"
 packages="${packages} fasd fonts-powerline"
 packages="${packages} linuxbrew-wrapper"
-packages="${packages} python3.8 python3-pip golang-go oracle-java13-installer oracle-java13-set-default"
+packages="${packages} python3 python3-pip golang-go"
 
 # Python packages
 python_packages="powerline-shell speedtest-cli"
