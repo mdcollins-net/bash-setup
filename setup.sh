@@ -240,7 +240,7 @@ zsh_setup () {
   sudo apt install -y zsh
 
   echo -e "Installing Oh My ZSH ... \n"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  sh -c "$(curl -k -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
   echo -e "Installing ZSH plugin: zsh-syntax-highlighting ... \n"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
