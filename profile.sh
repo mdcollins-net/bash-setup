@@ -91,11 +91,10 @@ function greeting() {
 
 Uptime.............: ${UPTIME}
 Memory.............: `cat /proc/meminfo | grep MemFree | awk {'print $2/1024/1024'}` GB (Free) / `cat /proc/meminfo | grep MemTotal | awk {'print $2/1024/1024'}` GB (Total)
-IP Addresses.......: `ip a | grep glo | awk '{print $2}' | head -1 | cut -f1 -d/` and `wget -q -O - http://icanhazip.com/ | tail`
 $(tput sgr0)$normal"
 
 	echo -e "$bold"
-	echo -e "Welcome ${USER} !"
+	echo -e ""
 	echo -e "$normal"
 }
 
@@ -180,8 +179,8 @@ unset fasd_cache
 
 
 greeting
-ssh_agent_init
-ssh_keychain_init
+#ssh_agent_init
+#ssh_keychain_init
 
 
 cd $HOME
