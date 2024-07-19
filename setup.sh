@@ -37,10 +37,10 @@ URL_RUST_SETUP="https://sh.rustup.rs"
 #
 
 # linux packages
-packages="wget curl vim dos2unix mc git autojump keychain exa"
+packages="exa"
 packages="${packages} fasd fonts-powerline"
 packages="${packages} linuxbrew-wrapper"
-packages="${packages} python3 python3-pip golang-go"
+packages="${packages} golang-go"
 
 # Python packages
 python_packages="powerline-shell speedtest-cli"
@@ -193,7 +193,6 @@ vim_setup_color_themes () {
 vim_setup_plugins () {
   echo -e "Downloading VIM plugins ... \n"
   # VIM Plugin : Plug
-  wget -O "${HOME}/.vim/autoload/plug.vim" ${URL_VIM_PLUGIN_PLUG}
   cp vim/plugin/plug.vim "${HOME}/.vim/autoload/plug.vim"
   dos2unix "${HOME}/.vim/autoload/plug.vim"
   echo -e "Finished downloading VIM plugins.\n"
