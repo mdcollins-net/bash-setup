@@ -32,15 +32,6 @@ URL_YARN_PKG="https://dl.yarnpkg.com/debian/"
 
 URL_RUST_SETUP="https://sh.rustup.rs"
 
-URL_VIM_THEME_ZENBURN="http://bit.ly/mcbashvimzenburn"
-URL_VIM_PLUGIN_PLUG="http://bit.ly/mcbashvimplug"
-URL_VIM_VIMRC="http://bit.ly/mcbashvimrc"
-
-URL_PROFILE="http://bit.ly/mcbashprofile"
-
-URL_ZSHRC="http://bit.ly/mcbashzshrc"
-URL_ZPROFILE="http://bit.ly/mcbashzprofile"
-
 #
 #  Set lists of packages to install
 #
@@ -194,7 +185,7 @@ make_backups () {
 vim_setup_color_themes () {
   echo -e "Downloading VIM themes ... \n"
   # VIM Theme : Zenburn
-  wget -O "${HOME}/.vim/colors/zenburn.vim" ${URL_VIM_THEME_ZENBURN}
+  cp vim/colors/zenburn.vim "${HOME}/.vim/colors/zenburn.vim"
   dos2unix "${HOME}/.vim/colors/zenburn.vim"
   echo -e "Finished downloading VIM themes.\n"
 }
@@ -203,6 +194,7 @@ vim_setup_plugins () {
   echo -e "Downloading VIM plugins ... \n"
   # VIM Plugin : Plug
   wget -O "${HOME}/.vim/autoload/plug.vim" ${URL_VIM_PLUGIN_PLUG}
+  cp vim/plugin/plug.vim "${HOME}/.vim/autoload/plug.vim"
   dos2unix "${HOME}/.vim/autoload/plug.vim"
   echo -e "Finished downloading VIM plugins.\n"
 }
@@ -224,10 +216,10 @@ vim_setup () {
   vim_setup_color_themes
   vim_setup_plugins
 
-  echo -e "Downloading vimrc ... \n"
-  wget -O "${TEMP_DIR}/vimrc" ${URL_VIM_VIMRC}
-  dos2unix "${TEMP_DIR}/vimrc"
-  cp "${TEMP_DIR}/vimrc" "${HOME}/.vimrc"
+  echo -e "Copying vimrc ... \n"
+  cp vimrc.sh "${TEMP_DIR}/vimrc.sh"
+  dos2unix "${TEMP_DIR}/vimrc.sh"
+  cp "${TEMP_DIR}/vimrc.sh" "${HOME}/.vimrc.sh"
 
   echo -e "\n${BOLD}Finished setting up VIM.${NORMAL}\n"
 }
@@ -259,13 +251,13 @@ zsh_setup () {
   echo -e "Installing ZSH plugin: zsh-autosuggestions ... \n"
   git clone https://github.com/supercrabtree/k ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/k
 
-  echo -e "Downloading zshrc ... \n"
-  wget -O "${TEMP_DIR}/zshrc" ${URL_ZSHRC}
+  echo -e "Copying zshrc ... \n"
+  cp zshrc "${TEMP_DIR}/zshrc"
   dos2unix "${TEMP_DIR}/zshrc"
   cp "${TEMP_DIR}/zshrc" "${HOME}/.zshrc"
 
-  echo -e "Downloading zprofile ... \n"
-  wget -O "${TEMP_DIR}/zprofile" ${URL_ZPROFILE}
+  echo -e "Copying zprofile ... \n"
+  cp zprofile "${TEMP_DIR}/zprofile"
   dos2unix "${TEMP_DIR}/zprofile"
   cp "${TEMP_DIR}/zprofile" "${HOME}/.zprofile"
 
